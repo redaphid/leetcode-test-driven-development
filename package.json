@@ -1,0 +1,20 @@
+{
+  "name": "leetcode",
+  "packageManager": "yarn@3.1.1",
+  "scripts": {
+    "test": "jest"
+  },
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redaphid/leetcode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/redaphid/leetcode/issues"
+  },
+  "homepage": "https://github.com/redaphid/leetcode#readme"
+}
