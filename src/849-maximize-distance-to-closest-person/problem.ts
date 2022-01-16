@@ -1,4 +1,6 @@
 function maxDistToClosest(seats: number[]): number {
+  console.log("these are the seats we'll be dealing with today")
+  console.table({seats})
   let lastOccupiedSeat = -1
   let lastBestOccupiedSeat = -1
   let bestDist = 0
@@ -24,14 +26,17 @@ function maxDistToClosest(seats: number[]): number {
   })
   const begginingSeat = lastBestOccupiedSeat - bestDist -1
   console.log(`I've decided that the best distance is ${bestDist}, between seats ${begginingSeat} and ${lastBestOccupiedSeat}`)
+  
   const seatMap = [...new Array(seats.length).fill(' ')]
   seatMap[begginingSeat] = '^'  
   seatMap[lastBestOccupiedSeat] = '^'
+
   const alexPosition = Math.round((lastBestOccupiedSeat - begginingSeat)/2)
+  console.log(`alex is going to sit in seat ${alexPosition}`)
   seatMap[alexPosition] = 'A'
   console.table({seats, seatMap})
   const alexDistance = alexPosition - begginingSeat
-  console.log(`the distance from Alex to the nearest person is: ${alexDistance}, otherwise known as ${bestDist}`)
+  console.log(`the distance from Alex to the nearest person is: ${alexDistance}`)
   return alexDistance
 }
 
