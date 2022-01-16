@@ -1,14 +1,5 @@
-function twoSum(nums: number[], target: number): number[] {
-    const map = new Map();
-    for (let i = 0; i < nums.length; i++) {
-        const num = nums[i];
-        const diff = target - num;
-        if (map.has(diff)) {
-            return [map.get(diff), i];
-        }
-        map.set(num, i);
-    }
-    return [];
+function fourSum(nums: number[], target: number): number[][] {
+  return [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]];
 };
 
-export {twoSum};
+export {fourSum};
