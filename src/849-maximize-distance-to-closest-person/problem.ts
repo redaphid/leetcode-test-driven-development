@@ -1,4 +1,4 @@
-export function maxDistToClosest(seats: number[]): number {
+function maxDistToClosest(seats: number[]): number {
   let bestDist = -1;
   let firstOccupiedSeat = -1
   let lastOccupiedSeat = 0
@@ -7,13 +7,9 @@ export function maxDistToClosest(seats: number[]): number {
   let bestStartingSeat = -1
   let bestEndingSeat = -1
   seats.forEach((occupied, seat) => {   
-    if(!occupied) return currentDist++
-    // if we are at a person, reset the current distance. record that
-    console.log(`seat ${seat} is occupied`) 
+    if(!occupied) return currentDist++   
     lastOccupiedSeat = seat
-    if(currentDist > bestDist) {
-      console.log(`the biggest distance is ${currentDist} between seats ${firstOccupiedSeat} and ${lastOccupiedSeat}`)
-      console.log(`${currentDist} seats were empty between ${firstOccupiedSeat} and ${lastOccupiedSeat}`)
+    if(currentDist > bestDist) {      
       bestStartingSeat = firstOccupiedSeat
       bestEndingSeat = lastOccupiedSeat
 
@@ -27,5 +23,7 @@ export function maxDistToClosest(seats: number[]): number {
   if (currentDist > bestDist) {
    return seats.length - 1
   }
-  return (bestEndingSeat - bestStartingSeat)/2
+  return Math.round((bestEndingSeat - bestStartingSeat)/2)
 }
+
+export {maxDistToClosest}
