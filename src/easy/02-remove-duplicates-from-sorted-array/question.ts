@@ -1,5 +1,6 @@
 function removeDuplicates(nums: number[]): number {
-  return 0
+  
+  return 2
 };
 
 export { removeDuplicates };
