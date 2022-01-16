@@ -6,7 +6,6 @@ export function maxDistToClosest(seats: number[]): number {
   
   let bestStartingSeat = -1
   let bestEndingSeat = -1
-
   seats.forEach((occupied, seat) => {   
     if(!occupied) return currentDist++
     // if we are at a person, reset the current distance. record that
@@ -24,6 +23,9 @@ export function maxDistToClosest(seats: number[]): number {
     lastOccupiedSeat = seat
     currentDist = 0
   });
-
+  currentDist = seats.length - lastOccupiedSeat
+  if (currentDist > bestDist) {
+   return seats.length - 1
+  }
   return (bestEndingSeat - bestStartingSeat)/2
 }
