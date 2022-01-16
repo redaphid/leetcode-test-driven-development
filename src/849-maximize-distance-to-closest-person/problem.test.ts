@@ -1,5 +1,5 @@
 import { maxDistToClosest } from "./problem";
-test("Example 1", () => {
+test.only("Example 1", () => {
   const seats = [1, 0, 0, 0, 1, 0, 1];
   const result = maxDistToClosest(seats);
   expect(result).toBe(2);
