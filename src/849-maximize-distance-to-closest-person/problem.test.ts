@@ -10,3 +10,9 @@ test("Example 2", () => {
   const result = maxDistToClosest(seats);
   expect(result).toBe(3);
 })
+
+test("Example 3", () => {
+  const seats = [0, 1];
+  const result = maxDistToClosest(seats);
+  expect(result).toBe(1);
+})
