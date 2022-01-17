@@ -1,8 +1,8 @@
-import {containsDuplicates} from './question';
+import {containsDuplicate} from './question';
 describe("Detect duplicates", () => {
   test("Example 1", () => {
     const nums = [1, 2, 3, 1];
-    const result = containsDuplicates(nums);
+    const result = containsDuplicate(nums);
     expect(result).toBe(true);
   });
 });
