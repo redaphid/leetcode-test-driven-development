@@ -1,9 +1,15 @@
 function removeDuplicates(nums: number[]): number {
-  let rightBound=-1, leftBound=-1, current=-1
+  let fast=-1, slow=-1, unique=0
   for(let i = 0; i < nums.length; i++) {
-    nums[1]=2
+    let current = nums[i]
+    if(current !== fast){
+      fast = current
+      unique++
+      continue
+    }
+    nums[unique] = nums[i+1]
   }
-  return 2
+  return unique
 };
 
 export { removeDuplicates };
