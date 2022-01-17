@@ -22,3 +22,10 @@ test("Example 3", () => {
   expect([...nums.slice(0, result)]).toEqual([1,2,3]);
 })
 
+test("Example 4", () => {
+  const nums =[-1,0,0,0,0,3,3]
+  const result = removeDuplicates(nums);
+  expect(result).toBe(3);
+  expect([...nums.slice(0, result)]).toEqual([-1,0,3]);
+})
+
