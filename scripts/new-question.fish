@@ -8,7 +8,6 @@ function create-new-question --argument question_name
   echo "Creating new question: $question_name"
   mkdir -p src/$question_name
   set safe_question_name (echo $question_name | sed 's/[^a-zA-Z0-9]//g')
-  echo $safe_question_name
   echo """
   function $safe_question_name() {
     throw new Error(\"This solution has not been implemented yet.\")
