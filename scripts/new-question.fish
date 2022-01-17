@@ -18,8 +18,10 @@ function create-new-question --argument question_name
 
   echo """
     import {$safe_question_name} from './solution'
-    test('$safe_question_name', () => {
-      expect(true).toBe(false)
+    describe('$safe_question_name', () => {
+      test(\"Example 1\", () => {
+        expect(true).toBe(false)
+      })
     })
     
   """ > src/$question_name/question.test.ts
