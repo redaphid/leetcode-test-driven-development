@@ -1,7 +1,10 @@
 
-    import {reversestring} from './solution'
+    import {reverseString} from './solution'
     test('reversestring', () => {
-      expect(true).toBe(false)
+      const chars = ['H', 'e', 'l', 'l', 'o']
+      const expected = ['o', 'l', 'l', 'e', 'H']
+      reverseString(chars)
+      expect(chars).toEqual(expected)
     })
     
   
