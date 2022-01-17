@@ -1,4 +1,4 @@
-import {containsDuplicate} from './question';
+import {containsDuplicate} from './solution';
 describe("Detect duplicates", () => {
   test("Example 1", () => {
     const nums = [1, 2, 3, 1];

@@ -1,4 +1,4 @@
-import {singleNumber} from './question';
+import {singleNumber} from './solution';
 describe("find the single number", () => {
   test("Example 1", () => {
     const nums = [2,2,1]

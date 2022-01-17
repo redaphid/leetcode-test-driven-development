@@ -1,4 +1,4 @@
-import { removeDuplicates } from "./question";
+import { removeDuplicates } from "./solution";
 
 describe("Remove Duplicates from Sorted Array", () => {
   test("Example 1", () => {

@@ -1,4 +1,4 @@
-import {intersect} from './question'
+import {intersect} from './solution'
 describe("Intersection of 2 Arrays", () => {
   test("Example 1", () => {
     const nums1 = [1, 2, 2, 1];
