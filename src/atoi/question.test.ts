@@ -42,4 +42,10 @@ describe("myAtoi", () => {
     const actual = myAtoi(input);
     expect(actual).toEqual(expected);
   })
+  test("When we get mixed signals re: the sign", () => {
+    const input = "-+42";
+    const expected = 0
+    const actual = myAtoi(input);
+    expect(actual).toEqual(expected);
+  })
 });
