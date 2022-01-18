@@ -25,6 +25,10 @@ function myAtoi(s: string): number {
     exponent++;
     const c = s[i];
     switch (c) {
+      //Weird cases handled by switch
+      case "0":
+        continue;
+
       case "-":
         if (i !== 0) reset();
         if (result > 0) result *= -1;
@@ -35,9 +39,7 @@ function myAtoi(s: string): number {
         if (result < 0) result *= -1;
         continue;
 
-      case "0":
-        continue;
-
+      //Normal cases handled by map
       default:
         const n = charToIntMap[c];
         if (n === undefined) {
