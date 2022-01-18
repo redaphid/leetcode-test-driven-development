@@ -13,11 +13,11 @@ const charToIntMap = {
 const MAX_SIZE = Math.pow(2, 31) - 1;
 function myAtoi(s: string): number {
   let result = 0;
-  let exponent = -1
-  s = s.trim()
-  for (let i = s.length -1; i >= 0; i--) {
-    exponent++
-    const c = s[i]
+  let exponent = -1;
+  s = s.trim();
+  for (let i = s.length - 1; i >= 0; i--) {
+    exponent++;
+    const c = s[i];
     switch (c) {
       case "-":
         if (result > 0) result *= -1;
@@ -29,20 +29,23 @@ function myAtoi(s: string): number {
       default:
         const n = charToIntMap[c];
         if (n === undefined) {
-          if(i === 0) return 0;
-          exponent--
-          continue
+          if (c === ".") {
+            result = 0;
+            exponent = -1;
+            continue;
+          }
+          if (i === 0) return 0;
+          exponent--;
+          continue;
         }
         const thingToAdd = n * Math.pow(10, exponent);
-        result += thingToAdd
-        continue
+        result += thingToAdd;
+        continue;
     }
   }
-  if(result > MAX_SIZE) return MAX_SIZE;
-  if(result < -MAX_SIZE-1) return -MAX_SIZE-1;
-  return result
+  if (result > MAX_SIZE) return MAX_SIZE;
+  if (result < -MAX_SIZE - 1) return -MAX_SIZE - 1;
+  return result;
 }
-
-
 
 export { myAtoi };
