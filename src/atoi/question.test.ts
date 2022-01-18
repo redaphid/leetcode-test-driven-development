@@ -54,4 +54,16 @@ describe("myAtoi", () => {
     const actual = myAtoi(input);
     expect(actual).toEqual(expected);
   })
+  test("when the string is a mess, with signs and letters", () => {
+    const input = "00000-42a1234"
+    const expected = 0;
+    const actual = myAtoi(input);
+    expect(actual).toEqual(expected);
+  })
+  test("I guess we ignore letters now?", () => {
+    const input = "42a1378"
+    const expected = 42;
+    const actual = myAtoi(input);
+    expect(actual).toEqual(expected); 
+  })
 });

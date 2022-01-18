@@ -37,7 +37,8 @@ function myAtoi(s: string): number {
             continue;
           }
           if (i === 0) return 0;
-          exponent--;
+          result = 0
+          exponent = -1
           continue;
         }
         const thingToAdd = n * Math.pow(10, exponent);
