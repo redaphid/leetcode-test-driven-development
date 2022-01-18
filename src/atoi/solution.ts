@@ -1,7 +1,7 @@
 
-  function atoi() {
-    throw new Error("This solution has not been implemented yet.")
+  function myAtoi(s:string):number {
+    return 0;
   }
-  export {atoi}
+  export {myAtoi}
 
   
