@@ -72,4 +72,16 @@ describe("myAtoi", () => {
     const actual = myAtoi(input);
     expect(actual).toEqual(expected);
   })
+  test("I guess when there's a - in the middle, but the rest of the chars are ok", ()=>{
+    const input = "-13-8"
+    const expected = -13;
+    const actual = myAtoi(input);
+    expect(actual).toEqual(expected);
+  })
+  test("I guess when there's a + in the middle, but the rest of the chars are ok", ()=>{
+    const input = "-13+8"
+    const expected = -13;
+    const actual = myAtoi(input);
+    expect(actual).toEqual(expected);
+  })
 });

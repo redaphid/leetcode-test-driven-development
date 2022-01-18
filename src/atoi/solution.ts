@@ -19,12 +19,15 @@ function myAtoi(s: string): number {
     exponent++;
     const c = s[i];
     switch (c) {
-      case "-":
+      case "-":       
         if(i === s.length -1) {
           exponent--;
           continue
         }
-        if(i !==0 ) return 0
+        if(i !==0 ) {
+          result = 0
+          exponent = -1
+        }
         if (result > 0) result *= -1;
         continue;
       case "+":
@@ -32,7 +35,10 @@ function myAtoi(s: string): number {
           exponent--;
           continue
         }
-        if(i !==0) return 0
+        if(i !==0 ) {
+          result = 0
+          exponent = -1
+        }
         if (result < 0) result *= -1;
       case "0":
         continue;
