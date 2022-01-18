@@ -10,6 +10,7 @@ const charToIntMap = {
   "9": 9,
   "0": 0,
 };
+const MAX_SIZE = Math.pow(2, 31) - 1;
 function myAtoi(s: string): number {
   let result = 0;
   let exponent = -1
@@ -29,6 +30,7 @@ function myAtoi(s: string): number {
       default:
         const n = charToIntMap[c];
         if (n === undefined) {
+          if(i === 0) return 0;
           exponent--
           continue
         }
@@ -37,7 +39,7 @@ function myAtoi(s: string): number {
         continue
     }
   }
-  return result;
+  return Math.abs(result) > MAX_SIZE ? MAX_SIZE * Math.sign(result) : result;
 }
 
 
