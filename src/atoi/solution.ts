@@ -8,37 +8,36 @@ const charToIntMap = {
   "7": 7,
   "8": 8,
   "9": 9,
-  "0": 0,
 };
 const MAX_SIZE = Math.pow(2, 31) - 1;
 function myAtoi(s: string): number {
-  let result = 0;
-  let exponent = -1;
+  let result;
+  let exponent;
+
+  const reset = () => {
+    result = 0;
+    exponent = -1;
+  };
+  reset();
   s = s.trim();
   for (let i = s.length - 1; i >= 0; i--) {
     exponent++;
     const c = s[i];
     switch (c) {
-      case "-":       
-        if(i === s.length -1) {
+      case "-":
+        if (i === s.length - 1) {
           exponent--;
-          continue
+          continue;
         }
-        if(i !==0 ) {
-          result = 0
-          exponent = -1
-        }
+        if (i !== 0) reset();
         if (result > 0) result *= -1;
         continue;
       case "+":
-        if(i === s.length -1) {
+        if (i === s.length - 1) {
           exponent--;
-          continue
+          continue;
         }
-        if(i !==0 ) {
-          result = 0
-          exponent = -1
-        }
+        if (i !== 0) reset();
         if (result < 0) result *= -1;
       case "0":
         continue;
@@ -51,8 +50,7 @@ function myAtoi(s: string): number {
             continue;
           }
           if (i === 0) return 0;
-          result = 0
-          exponent = -1
+          reset();
           continue;
         }
         const thingToAdd = n * Math.pow(10, exponent);
