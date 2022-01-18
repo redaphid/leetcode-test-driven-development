@@ -1,6 +1,6 @@
 
-    import {validpalindrome} from './solution'
-    describe('validpalindrome', () => {
+    import {isPalindrome} from './solution'
+    describe('isPalindrome', () => {
       test("Example 1", () => {
         expect(true).toBe(false)
       })
