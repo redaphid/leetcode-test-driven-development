@@ -39,7 +39,9 @@ function myAtoi(s: string): number {
         continue
     }
   }
-  return Math.abs(result) > MAX_SIZE ? MAX_SIZE * Math.sign(result) : result;
+  if(result > MAX_SIZE) return MAX_SIZE;
+  if(result < -MAX_SIZE-1) return -MAX_SIZE-1;
+  return result
 }
 
 

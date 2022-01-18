@@ -25,14 +25,14 @@ describe("myAtoi", () => {
     expect(actual).toEqual(expected);
   });
   test("When the resulting # is too large", () => {
-    const input = "2147483648";
+    const input = "2147483699948";
     const expected = 2147483647;
     const actual = myAtoi(input);
     expect(actual).toEqual(expected);
   })
   test("When the resulting # is too small", () => {
-    const input = "-2147483648";
-    const expected = -2147483647;
+    const input = "-21474836948";
+    const expected = -2147483648;
     const actual = myAtoi(input);
     expect(actual).toEqual(expected);
   })
