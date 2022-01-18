@@ -1,7 +1,21 @@
-
-  function isPalindrome() {
-    throw new Error("This solution has not been implemented yet.")
+function isPalindrome(s: string) {
+  const sArray = s
+    .replace(/[^a-zA-Z0-9]/g, "")
+    .toLowerCase()
+    .split("");
+  while(sArray.length > 1) {
+    const b = sArray.pop();
+    const a = sArray.shift();
+    if(a === undefined || b === undefined) return true
+    if(a !== b) return false;
   }
-  export {isPalindrome}
+  return true
+}
 
-  
+
+
+
+
+
+
+export { isPalindrome };
