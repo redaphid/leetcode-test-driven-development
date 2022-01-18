@@ -48,4 +48,10 @@ describe("myAtoi", () => {
     const actual = myAtoi(input);
     expect(actual).toEqual(expected);
   })
+  test("When the sign is in the middle of the string", () => {
+    const input = "   4-2";
+    const expected = 0;
+    const actual = myAtoi(input);
+    expect(actual).toEqual(expected);
+  })
 });

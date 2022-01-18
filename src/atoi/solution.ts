@@ -14,22 +14,18 @@ const MAX_SIZE = Math.pow(2, 31) - 1;
 function myAtoi(s: string): number {
   let result = 0;
   let exponent = -1;
-  let seenTheSign = false;
-
   s = s.trim();
   for (let i = s.length - 1; i >= 0; i--) {
     exponent++;
     const c = s[i];
     switch (c) {
       case "-":
-        if(seenTheSign) return 0
+        if(i !==0) return 0
         if (result > 0) result *= -1;
-        seenTheSign = true;
         continue;
       case "+":
-        if(seenTheSign) return 0
+        if(i !==0) return 0
         if (result < 0) result *= -1;
-        seenTheSign = true;
       case "0":
         continue;
       default:
