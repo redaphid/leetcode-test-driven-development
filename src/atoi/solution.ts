@@ -13,10 +13,10 @@ const charToIntMap = {
 function myAtoi(s: string): number {
   let result = 0;
   let exponent = -1
-  const b = s.split('').reverse()
-  for (let i = 0; i < b.length; i++) {
+  // const b = s.split('').reverse()
+  for (let i = s.length -1; i >= 0; i--) {
     exponent++
-    const c = b[i];
+    const c = s[i]
     switch (c) {
       case "-":
         if (result > 0) result *= -1;
@@ -38,4 +38,7 @@ function myAtoi(s: string): number {
   }
   return result;
 }
+
+
+
 export { myAtoi };
