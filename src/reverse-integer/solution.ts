@@ -7,8 +7,9 @@ function reverse(n: number) {
   if (lastChar === "-") {
     sign = -1;
   }
-
-  return parseInt(prettyMuchReversed) * sign;
+  const reversed = parseInt(prettyMuchReversed) * sign;
+  if(Math.abs(reversed) > Math.pow(2, 31)-1) return 0
+  return reversed;
 }
 
 export { reverse };
