@@ -36,4 +36,10 @@ describe("myAtoi", () => {
     const actual = myAtoi(input);
     expect(actual).toEqual(expected);
   })
+  test("When the string has a decimal point", () => {
+    const input = "3.14159";
+    const expected = 3;
+    const actual = myAtoi(input);
+    expect(actual).toEqual(expected);
+  })
 });
