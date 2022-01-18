@@ -66,4 +66,10 @@ describe("myAtoi", () => {
     const actual = myAtoi(input);
     expect(actual).toEqual(expected); 
   })
+  test("When there's a sign on both ends of the string", () => {
+    const input = "-69-"
+    const expected = -69;
+    const actual = myAtoi(input);
+    expect(actual).toEqual(expected);
+  })
 });

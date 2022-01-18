@@ -20,10 +20,18 @@ function myAtoi(s: string): number {
     const c = s[i];
     switch (c) {
       case "-":
-        if(i !==0) return 0
+        if(i === s.length -1) {
+          exponent--;
+          continue
+        }
+        if(i !==0 ) return 0
         if (result > 0) result *= -1;
         continue;
       case "+":
+        if(i === s.length -1) {
+          exponent--;
+          continue
+        }
         if(i !==0) return 0
         if (result < 0) result *= -1;
       case "0":
