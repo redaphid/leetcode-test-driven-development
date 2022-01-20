@@ -29,17 +29,18 @@ import {ListNode} from '../util/linked-lists';
   }
 
   const sortedFlatNodes = flatNodes.sort((a,b) => a.val - b.val)
-  let sortedList = sortedFlatNodes.pop()!
-  sortedFlatNodes.reduce((prev, curr) => {
-    prev.next = curr
-    prev.val = curr.val
-    return curr
 
-  }, sortedList)
-  
-  const lastNode = sortedFlatNodes.pop()
-  lastNode!.next = null
-  return sortedList
+
+
+  for(let i = 0; i < sortedFlatNodes.length; i++) {
+    const curr = sortedFlatNodes[i]
+    const next = sortedFlatNodes[i + 1]
+    curr.next = next
+  }
+
+  let last = sortedFlatNodes[sortedFlatNodes.length - 1]
+  last.next = null
+  return sortedFlatNodes[0]
 };
 
 export { mergeTwoLists };
