@@ -1,7 +1,11 @@
+export interface TreeNode {
+  val: number;
+  left?: TreeNode | null;
+  right?: TreeNode | null;
+}
 
-  function validatebinarytree() {
-    throw new Error("This solution has not been implemented yet.")
-  }
-  export {validatebinarytree}
+function isValidBST(root: TreeNode | null): boolean {
+  return false;
+}
 
-  
+export { isValidBST };
