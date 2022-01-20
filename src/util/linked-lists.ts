@@ -7,8 +7,17 @@ export class ListNode {
     this.next = next === undefined ? null : next;
   }
 }
-
-export const makeListFromArray = (arr: number[]): ListNode | null => {  
+export const listToArray  = (list: ListNode | null): number[] => {
+  const arr: number[] = [];
+  while (list !== null) {
+    console.log({list})
+    arr.push(list.val);
+    list = list.next;
+  }
+  console.log({arr})
+  return arr;
+}
+export const arrayToList = (arr: number[]): ListNode | null => {  
   if (arr.length === 0) {
     return null;
   }

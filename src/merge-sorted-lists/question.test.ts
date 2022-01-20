@@ -1,8 +1,13 @@
 
-    import {mergesortedlists} from './solution'
+    import {mergeTwoLists} from './solution'
+    import {ListNode,arrayToList, listToArray} from '../util/linked-lists'
     describe('mergesortedlists', () => {
       test("Example 1", () => {
-        expect(true).toBe(false)
+        const l1 = arrayToList([1,2,4])
+        const l2 = arrayToList([1,3,4])
+        const result = mergeTwoLists(l1, l2)!
+        const resultArray = listToArray(result)
+        expect(resultArray).toEqual([1,1,2,3,4,4])
       })
     })
     
