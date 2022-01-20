@@ -14,7 +14,6 @@
         const l2 = arrayToList([2])
         const result = mergeTwoLists(l1, l2)!
         const resultArray = listToArray(result)
-        console.log({resultArray})
         expect(resultArray).toEqual([1,2])
       })
     })

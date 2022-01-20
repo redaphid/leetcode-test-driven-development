@@ -9,12 +9,10 @@ export class ListNode {
 }
 export const listToArray  = (list: ListNode | null): number[] => {
   const arr: number[] = [];
-  while (list !== null) {
-    console.log({list})
+  while (list !== null) {    
     arr.push(list.val);
     list = list.next;
   }
-  console.log({arr})
   return arr;
 }
 export const arrayToList = (arr: number[]): ListNode | null => {  
