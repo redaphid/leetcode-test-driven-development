@@ -13,7 +13,7 @@
         const result = isSymmetric(input)
         expect(result).toBe(true)
       })
-      test("Example 2", () => {
+      test.only("Example 2", () => {
         //input = [1,2,2,null,3,null,3]
         const input = {
           val: 1,
