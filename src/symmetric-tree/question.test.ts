@@ -18,9 +18,12 @@
         const input = {
           val: 1,
           left: { val: 2,
-                  left: { val: 3, },
+                  left: { 
+                    val: 3, 
+                  },
           },
-          right: { val: 2, left: { val: 3, }},
+          right: { val: 2, 
+            left: { val: 3, }},
         }
         const result = isSymmetric(input)
         expect(result).toBe(false)
@@ -57,6 +60,29 @@
         }         
         const result = isSymmetric(input)
         expect(result).toBe(false)
+      })
+      test("Example 4", () => {        
+        const input = {
+          val: 1,
+          left: { val: 0},          
+          }               
+        const result = isSymmetric(input)
+        expect(result).toBe(false)
+      })
+      test("Example 5", () => {
+        //Input: [1,2,2,null,3,3]
+        const input = {
+          val: 1,
+          left: { val: 2,
+            left: { 
+              val: 3, 
+            },
+          },
+          right: { 
+            val: 2, right: { val: 3, }},
+        }
+        const result = isSymmetric(input)
+        expect(result).toBe(true)
       })
     })
     

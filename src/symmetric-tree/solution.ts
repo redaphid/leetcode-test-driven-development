@@ -4,27 +4,15 @@ export interface TreeNode {
   right?: TreeNode | null;
 }
 
-const LSHIFT = 100000
-const RSHIFT = Math.pow(LSHIFT, 10)
-
-const getTreeVal = (depth: number, node?: TreeNode | null): number => {
-  if (!node) return 0;
-  if(!branchesBalanced(node.left, node.right)) throw new Error("Branches not balanced");
-  return node.val + getTreeVal(depth * LSHIFT, node.left) + getTreeVal(depth *RSHIFT, node.right);
+let isSymmetric = function(root) {
+  if (!root) return true; // An empty tree is symmetric
+  return helper(root.left, root.right)
+};
+  
+let helper = (l, r) => {
+  if (!l && !r) return true; // If both are null, return true - we reached the end of tree.
+  if (l?.val !== r?.val) return false; // Check left & right values. Question mark was added to take care of case that one of them is null.
+  else return (helper(l.right, r.left) && helper(l.left, r.right)); // Call helper for their children, symmetrically (mirrored)
 }
 
-const branchesBalanced = (a: TreeNode | null | undefined, b: TreeNode | null | undefined) => {
-  if (a && !b) return false;
-  if (!a && b) return false;
-  return true
-}
-
-function isSymmetric(root: TreeNode | null): boolean {
-  if (root === null) return true;
-  try {
-  return getTreeVal(1,root.left) === getTreeVal(1,root.right)
-  } catch(e) {
-    return false
-  }
-}
 export { isSymmetric };
