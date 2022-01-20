@@ -10,8 +10,11 @@ import {ListNode} from '../util/linked-lists';
  *     }
  * }
  */
-
+import {arrayToList, listToArray} from '../util/linked-lists';
  function reverseList(head: ListNode | null): ListNode | null {
-  return null
+  if (!head) return null;
+  const original = listToArray(head);
+  const reversed = original.reverse();
+  return arrayToList(reversed);
 };
 export {reverseList}
