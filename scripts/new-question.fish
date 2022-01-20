@@ -1,7 +1,8 @@
 #!/usr/bin/env fish
 function create-new-question --argument question_name
   set -q question_name[1]; or begin
-    echo "Please enter the name of the new question."   
+    echo "Please enter
+     the name of the new question."   
     exit 1
   end
 

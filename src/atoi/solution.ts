@@ -26,7 +26,7 @@ function myAtoi(s: string): number {
     const c = s[i];
     switch (c) {
       //Weird cases handled by switch
-      case "0":
+      case "0":  
         continue;
 
       case "-":
