@@ -3,10 +3,7 @@ import { TreeNode } from "../util/trees";
 const isDefined = (val) => {
   return val !== undefined && val !== null;
 };
-function nextLevel(
-  left: TreeNode | null,
-  right: TreeNode | null
-): number[][] | null {
+function nextLevel(left: TreeNode | null, right: TreeNode | null): number[][] | null {
   const thisLevel = [];
   let levelAfter = [];
 
