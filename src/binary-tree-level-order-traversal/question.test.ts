@@ -19,4 +19,20 @@ describe("levelOrder", () => {
     const output = levelOrder(input);
     expect(output).toEqual([[3], [9, 20], [15, 7]]);
   });
+  test("Example 2", () => {
+    const input = {
+      val: 1,
+      left: {
+        val: 2,
+        left: {
+          val: 4,
+        },
+      },
+      right: {
+        val: 3,
+      },
+    };
+    const output = levelOrder(input);
+    expect(output).toEqual([[1], [2, 3], [4]]);
+  })
 });
