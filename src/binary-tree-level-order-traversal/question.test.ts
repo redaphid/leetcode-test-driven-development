@@ -17,6 +17,8 @@ describe("levelOrder", () => {
       },
     };
     const output = levelOrder(input);
+    console.table(output)
+    console.log(JSON.stringify(output, null, 2))
     const [first, second, third] = output
     expect(first).toEqual([3]);
     expect(second).toEqual([9, 20]);
