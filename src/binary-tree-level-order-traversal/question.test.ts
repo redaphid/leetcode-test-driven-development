@@ -23,6 +23,7 @@ describe("levelOrder", () => {
     expect(first).toEqual([3]);
     expect(second).toEqual([9, 20]);
     expect(third).toEqual([15, 7]); 
+    expect(output).toHaveLength(3)
   });
   test("Example 2", () => {
     const input = {
@@ -39,6 +40,9 @@ describe("levelOrder", () => {
     };
     const output = levelOrder(input);
     const [first, second, third] = output
+    console.table(output)
+    console.log(JSON.stringify(output, null, 2))
+
     expect(first).toEqual([1]);
     expect(second).toEqual([2, 3]);
     expect(third).toEqual([4]);

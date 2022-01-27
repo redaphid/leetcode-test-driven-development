@@ -9,13 +9,23 @@ function nextLevel(left:TreeNode| null, right:TreeNode| null): number[][] {
   if(right?.val !== undefined  && right?.val !== null) {
     thisLevel.push(right.val)
   }
+  if(!right?.val && !left?.val){
+    return [thisLevel]
+  }
   if(right?.val) {
     levelAfter = [...levelAfter, ...nextLevel(right.left, right.right)]  
   }
   if(left?.val) {
     levelAfter = [...levelAfter, ...nextLevel(left.left, left.right)]
   }
-  return [thisLevel, ...levelAfter]
+  let betterLevelAfter = []
+  for(let i = 0; i < levelAfter.length; i++){
+    const level = levelAfter[i]
+    if(level.length) {
+      betterLevelAfter.push(level)
+    }
+  }
+  return [thisLevel, ...betterLevelAfter]
 }
 
  function levelOrder(root: TreeNode | null): number[][] {
