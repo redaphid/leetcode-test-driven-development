@@ -32,19 +32,29 @@ describe("levelOrder", () => {
         val: 2,
         left: {
           val: 4,
+          left: {
+            val: 5,
+          },
+          right: {
+            val: 6
+          },
         },
+        right: {
+          val: 8,
+        }
       },
       right: {
         val: 3,
       },
     };
     const output = levelOrder(input);
-    const [first, second, third] = output
+    const [first, second, third, fourth] = output
     console.table(output)
     console.log(JSON.stringify(output, null, 2))
 
     expect(first).toEqual([1]);
     expect(second).toEqual([2, 3]);
-    expect(third).toEqual([4]);
+    expect(third).toEqual([4,8]);
+    expect(fourth).toEqual([5,6]);
   })
 });
