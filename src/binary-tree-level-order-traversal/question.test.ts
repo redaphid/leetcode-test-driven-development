@@ -17,13 +17,13 @@ describe("levelOrder", () => {
       },
     };
     const output = levelOrder(input);
-    console.table(output)
-    console.log(JSON.stringify(output, null, 2))
-    const [first, second, third] = output
+    console.table(output);
+    console.log(JSON.stringify(output, null, 2));
+    const [first, second, third] = output;
     expect(first).toEqual([3]);
     expect(second).toEqual([9, 20]);
-    expect(third).toEqual([15, 7]); 
-    expect(output).toHaveLength(3)
+    expect(third).toEqual([15, 7]);
+    expect(output).toHaveLength(3);
   });
   test("Example 2", () => {
     const input = {
@@ -36,25 +36,32 @@ describe("levelOrder", () => {
             val: 5,
           },
           right: {
-            val: 6
+            val: 6,
           },
         },
         right: {
           val: 8,
-        }
+        },
       },
       right: {
         val: 3,
       },
     };
     const output = levelOrder(input);
-    const [first, second, third, fourth] = output
-    console.table(output)
-    console.log(JSON.stringify(output, null, 2))
+    const [first, second, third, fourth] = output;
+    console.table(output);
+    console.log(JSON.stringify(output, null, 2));
 
     expect(first).toEqual([1]);
     expect(second).toEqual([2, 3]);
-    expect(third).toEqual([4,8]);
-    expect(fourth).toEqual([5,6]);
-  })
+    expect(third).toEqual([4, 8]);
+    expect(fourth).toEqual([5, 6]);
+  });
+  test("A tree with only the root should return the root, doubly-nested", () => {
+    const input = { val: 1 };
+    const result = levelOrder(input);
+    const [first] = result;
+    expect(first).toEqual([1]);
+    expect(result.length).toBe(1)
+  });
 });
