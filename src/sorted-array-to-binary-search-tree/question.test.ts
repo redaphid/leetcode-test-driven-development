@@ -1,7 +1,7 @@
 
     import {sortedArrayToBST} from './solution'
     describe('sortedArrayToBST', () => {
-      test("Example 1", () => {
+      test.only("Example 1", () => {
         const input = [-10, -3, 0,5,9]
         const output = sortedArrayToBST(input)
         expect(output).not.toBeFalsy()
@@ -11,6 +11,12 @@
 
         expect(right?.val).toEqual(9)
         expect(right?.left?.val).toEqual(5)        
+      })
+      test("Example 2", ()=>{
+        const input = [1,3]
+        const output = sortedArrayToBST(input)
+        expect(output?.val).toEqual(3)
+        expect(output?.left?.val).toEqual(1)
       })
     })
     
