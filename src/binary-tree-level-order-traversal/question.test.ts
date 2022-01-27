@@ -59,9 +59,36 @@ describe("levelOrder", () => {
   });
   test("A tree with only the root should return the root, doubly-nested", () => {
     const input = { val: 1 };
-    const result = levelOrder(input);
-    const [first] = result;
+    const output = levelOrder(input);
+    const [first] = output;
+    
+    console.table(output);
+    console.log(JSON.stringify(output, null, 2));
+
+
     expect(first).toEqual([1]);
-    expect(result.length).toBe(1)
+    expect(output.length).toBe(1)
+  });
+
+  test("Example 4", ()=>{
+    const input = {
+      val: 1,
+      left: {
+        val: 2,
+        left: {
+          val: 4,
+        },
+      },
+      right: {
+        val: 3,
+        right: {
+          val: 5,
+        },
+      },
+    }
+    const output = levelOrder(input)
+    const [first, second, third] = output
+    expect(third).toEqual([4,5])
+    expect(output).toHaveLength(3)
   });
 });
