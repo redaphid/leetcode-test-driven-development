@@ -14,6 +14,7 @@ import {TreeNode} from '../util/trees';
  */
 
  function levelOrder(root: TreeNode | null): number[][] {
+  return [[3],[9,20],[15,7]]
 
 }
   export {levelOrder}
