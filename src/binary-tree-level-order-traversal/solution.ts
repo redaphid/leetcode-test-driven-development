@@ -1,22 +1,15 @@
 import {TreeNode} from '../util/trees';
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
+
+function nextLevel(left:TreeNode| null, right:TreeNode| null): number[][] {
+  if(!left && !right) return []
+  return [[left?.val || 0, right?.val || 0], ...nextLevel(left?.left, left?.right), ...nextLevel(right?.left, right?.right)]
+}
 
  function levelOrder(root: TreeNode | null): number[][] {
-  return [[3],[9,20],[15,7]]
+   if(!root) return []
+   return [[root.val], ...nextLevel(root.left, root.right)]
 
-}
+ }
   export {levelOrder}
 
   
