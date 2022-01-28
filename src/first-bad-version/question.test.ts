@@ -1,5 +1,5 @@
 import { firstbadversion } from "./solution";
-describe.only("firstbadversion", () => {
+describe("firstbadversion", () => {
   test("Example 1", () => {
     const n = 5
     const solution = firstbadversion(jest.fn().mockReturnValue(true));
@@ -9,7 +9,6 @@ describe.only("firstbadversion", () => {
   test("Example 2", () => {
     const n = 5
     const solution = firstbadversion((version)=>{
-      console.log({version});
       return (version > 3)
     });
 
@@ -18,7 +17,6 @@ describe.only("firstbadversion", () => {
   test("Example 3", () => {
     const n = 2
     const solution = firstbadversion((version)=>{
-      console.log({version});
       return (version > 1)
     })
     expect(solution(n)).toEqual(2);
