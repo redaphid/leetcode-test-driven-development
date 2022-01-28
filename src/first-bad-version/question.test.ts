@@ -6,4 +6,10 @@ describe("firstbadversion", () => {
 
     expect(solution(n)).toEqual(1);
   });
+  test("Example 2", () => {
+    const n = 5
+    const solution = firstbadversion(jest.fn().mockReturnValue(false));
+
+    expect(solution(n)).toEqual(5);
+  });
 });
