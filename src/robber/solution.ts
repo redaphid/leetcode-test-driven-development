@@ -3,12 +3,10 @@ function rob(houses: number[]): number {
 
   const addIfViable = (i: number) => {
     viableOptions.forEach((v) => {
-      console.log(`${v} + ${houses[i]}`);
       if (v.includes(i)) return true;
       if (v.includes(i + 1)) return true;
       if (v.includes(i - 1)) return true;
       viableOptions.add([...v, i]);
-      v.sort();
     });
   };
   for (let i = 0; i < houses.length; i++) {
@@ -16,11 +14,10 @@ function rob(houses: number[]): number {
     addIfViable(i);
   }
   let max = -Infinity;
-  console.table(viableOptions);
+  
   viableOptions.forEach((option) => {
     const val = option
       .map((i) => {
-        // console.log({ i, houses: houses[i] });
         return houses[i];
       })
       .reduce((a, b) => a + b);    
