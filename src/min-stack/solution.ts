@@ -1,17 +1,16 @@
 class MinStack {
   constructor() {}
   vals: number[] = []
+  mins: number[] = []
 
   push(val: number): void {
     this.vals.push(val)
-    console.log(this.vals)
-    this.vals.sort((a, b) =>  a - b)
-    console.log(this.vals)
+    this.mins = [...this.vals].sort((a, b) => a - b)
   }
 
   pop(): void {
-    this.vals.shift()
-    console.log(this.vals)
+    this.vals.pop()
+    this.mins = [...this.vals].sort((a, b) => a - b)
   }
 
   top(): number {
@@ -19,7 +18,8 @@ class MinStack {
   }
 
   getMin(): number {
-    return this.vals[0]
+    if(this.mins.length === 0) return Infinity
+    return this.mins[0]
   }
 }
 export { MinStack };
