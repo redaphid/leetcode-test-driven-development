@@ -25,6 +25,12 @@
         const actual = romanToInt(input)
         expect(actual).toBe(expected)
       })
+      test("Example 5", () => {
+        const input = "MCMXCIV"
+        const expected = 1994
+        const actual = romanToInt(input)
+        expect(actual).toBe(expected)
+      })
     })
     
   
