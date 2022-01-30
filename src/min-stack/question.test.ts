@@ -7,6 +7,10 @@
         sut.push(0)
         sut.push(-3)
         expect(sut.getMin()).toBe(-3)
+        
+        sut.pop()
+        expect(sut.top()).toBe(0)
+        expect(sut.getMin()).toBe(-2)
       })
     })
     

@@ -5,12 +5,13 @@ class MinStack {
   push(val: number): void {
     this.vals.push(val)
     console.log(this.vals)
-    this.vals.sort((a, b) =>  a >b ? 1 : -1)
+    this.vals.sort((a, b) =>  a - b)
     console.log(this.vals)
   }
 
   pop(): void {
-    this.vals.pop()
+    this.vals.shift()
+    console.log(this.vals)
   }
 
   top(): number {
