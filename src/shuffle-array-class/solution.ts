@@ -10,7 +10,15 @@ class Solution {
   }
 
   shuffle(): number[] {
-    return this.nums.sort(() => Math.random() - 0.5)
+    let array = [...this.nums]
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    this.nums = array
+    return this.nums
   }
 }
 
