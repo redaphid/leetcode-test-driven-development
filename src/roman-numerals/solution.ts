@@ -13,7 +13,6 @@ function romanToInt(s: string): number {
   for (let i = 0; i < s.length; i++) {
     const c = s[i];
     const decimal = romanToIntMap[c];
-    if (!decimal) throw new Error(`Unknown roman numeral: ${c}`);
     const last = results[results.length - 1];
     if (decimal > last) {
       results[results.length - 1] = decimal - last;
