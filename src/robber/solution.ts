@@ -1,17 +1,31 @@
+function rob(houses: number[]): number {
+  let viableOptions: Set<number[]> = new Set();
 
-  function rob(houses:number[]):number { 
-    //Its never less than the max we can rob, which is either even or odd
-    let evens = 0;
-    let odds = 0;
-    for(let i = 0; i < houses.length; i++){
-      if(i%2){
-        evens += houses[i];
-        continue
-      }
-      odds += houses[i];
-    }
-    return Math.max(evens, odds);
+  const addIfViable = (i: number) => {
+    viableOptions.forEach((v) => {
+      console.log(`${v} + ${houses[i]}`);
+      if (v.includes(i)) return true;
+      if (v.includes(i + 1)) return true;
+      if (v.includes(i - 1)) return true;
+      viableOptions.add([...v, i]);
+      v.sort();
+    });
+  };
+  for (let i = 0; i < houses.length; i++) {
+    viableOptions.add([i]);
+    addIfViable(i);
   }
-  export {rob}
-
-  
+  let max = -Infinity;
+  console.table(viableOptions);
+  viableOptions.forEach((option) => {
+    const val = option
+      .map((i) => {
+        // console.log({ i, houses: houses[i] });
+        return houses[i];
+      })
+      .reduce((a, b) => a + b);    
+    max = Math.max(max, val);
+  });
+  return max; // return max
+}
+export { rob };

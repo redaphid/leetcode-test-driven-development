@@ -16,6 +16,11 @@
         const max = rob(houses)
         expect(max).toBe(4)
       })
+      test("[0]", () => {
+        const houses = [0]
+        const max = rob(houses)
+        expect(max).toBe(0)
+      })
     })
     
   
