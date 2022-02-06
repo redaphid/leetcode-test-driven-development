@@ -23,7 +23,7 @@
   
     function newSuperDigit(s:string, k:number) {
       console.log(`s: ${s}, k: ${k}`)
-      if(k === 0) return 0
+      // if(k === 0) return 0
       
       if(s.length === 1 && k === 1) return parseInt(s)
       
@@ -36,8 +36,10 @@
       }
   
       console.log(`result: ${result}`)
-      // return superdigit(result, k-1)
-      return parseInt(result) * superdigit(s, k-1)
+      const recurseResult = parseInt(result) * superdigit(s, k-1)
+      const rrs = (recurseResult+'').length
+      if(rrs === 1) return recurseResult
+      return superdigit(recurseResult+'', 1)       
     }
 
 
