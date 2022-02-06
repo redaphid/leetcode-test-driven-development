@@ -1,7 +1,7 @@
 
     import {superdigit} from './solution'
     describe.only('superdigit', () => {
-      test.only("Example 2", () => {       
+      test("Example 2", () => {       
        const result = superdigit('9875',4 )
        expect(result).toEqual(8)
       })
@@ -18,7 +18,14 @@
           .toString()
           .repeat(10000)
         const result = superdigit(huge, Math.pow(9, 5))
-        expect(result).toEqual(2)
+        const rs = result + ''
+        expect(rs.length).toEqual(1)
+        // expect(result).toEqual(2)
+      })
+      test("When the number is n=123 and k=3", () => {
+        const result = superdigit('123', 3)
+        console.log(6+6+6)
+        expect(result).toEqual(9)
       })
     })
     
