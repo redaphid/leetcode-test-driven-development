@@ -26,7 +26,7 @@
   }
   
     function newSuperDigit(s:string, k:number) {
-      console.log(`newSuperDigit s: ${s}, k: ${k}`)
+
       if(s.length === 1) return parseOrThrow(s)
 
       let rs = s.slice()
@@ -34,11 +34,10 @@
         rs = addDigits(rs).toString()
       }
       let result = parseOrThrow(rs)
-      while(k > 1) {
-        k--
-        result += newSuperDigit(s, k)
+      for(let m = k-1; m > 0; m--) {  
+        result += newSuperDigit(s, 1)      
       }
-      console.log(result)
+      console.log(`newSuperDigit(s: ${s}, k: ${k}) = ${result}`)
       return newSuperDigit(result.toString(), 1)  
     }
 
