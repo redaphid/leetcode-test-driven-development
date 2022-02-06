@@ -1,35 +1,52 @@
 
-    import {superdigit, newSuperDigit} from './solution'
-    describe.only('superdigit', () => {
+    import {oldSuperDigit, newSuperDigit} from './solution'
+    describe.only('superDigit', () => {
       test("Example 2", () => {       
-       const result = superdigit('9875',4 )
-       expect(result).toEqual(8)
+       const result = oldSuperDigit('9875',4 )      
+       expect(result).toEqual(8)       
       })
       test("Example 1", () => {
-        const result = superdigit('1', 100)
+        const result = oldSuperDigit('1', 100)
         expect(result).toEqual(1)
       })
       test("When the number is 9875", () => {
-        const result = superdigit('9875', 1)
+        const result = oldSuperDigit('9875', 1)
         expect(result).toEqual(2)
       })
       xtest("When the number is huge", () => {
         const huge = Math.pow(9, 5)
           .toString()
           .repeat(10000)
-        const result = superdigit(huge, Math.pow(9, 5))
+        const result = oldSuperDigit(huge, Math.pow(9, 5))
         const rs = result + ''
         expect(rs.length).toEqual(1)
         // expect(result).toEqual(2)
       })
       test("When the number is n=123 and k=3", () => {
-        const result = superdigit('123', 3)
+        const result = oldSuperDigit('123', 3)
         expect(result).toEqual(9)
       })
-      test("newSuperDigit should return the same result as superdigit", () => {
-        const oldResult = superdigit('123', 3)
-        const newResult = newSuperDigit('123', 3)
-        expect(newResult).toEqual(oldResult)
+      describe("newSuperDigit", () => {
+        test("when the number is 123 and k=1", () => {
+          const oldResult = oldSuperDigit('123', 1)
+          const newResult = newSuperDigit('123', 1)
+          expect(newResult).toEqual(oldResult)
+        })
+        test("when the number is 123 and k=2", () => {
+          const oldResult = oldSuperDigit('123', 2)
+          const newResult = newSuperDigit('123', 2)
+          expect(newResult).toEqual(oldResult)
+        })
+        test("when the number is 123 and k=3", () => {
+          const oldResult = oldSuperDigit('123', 3)
+          const newResult = newSuperDigit('123', 3)
+          expect(newResult).toEqual(oldResult)
+        })
+        test("when the number is 123 and k=4", () => {
+          const oldResult = oldSuperDigit('123', 4)
+          const newResult = newSuperDigit('123', 4)
+          expect(newResult).toEqual(oldResult)
+        })
       })
     })
     
