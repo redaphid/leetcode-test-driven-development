@@ -1,5 +1,5 @@
 
-    import {superdigit} from './solution'
+    import {superdigit, newSuperDigit} from './solution'
     describe.only('superdigit', () => {
       test("Example 2", () => {       
        const result = superdigit('9875',4 )
@@ -24,8 +24,12 @@
       })
       test("When the number is n=123 and k=3", () => {
         const result = superdigit('123', 3)
-        console.log(6+6+6)
         expect(result).toEqual(9)
+      })
+      test("newSuperDigit should return the same result as superdigit", () => {
+        const oldResult = superdigit('123', 3)
+        const newResult = newSuperDigit('123', 3)
+        expect(newResult).toEqual(oldResult)
       })
     })
     
