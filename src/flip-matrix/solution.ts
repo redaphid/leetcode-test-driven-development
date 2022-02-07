@@ -42,11 +42,10 @@ function getAllowedCells(numberMap: Set<number>[][], val: number) {
   const cellMatrix = numberMap.map((row) =>
     row.map((col) => (col.has(val) ? val.toString() : "--"))
   );
-  console.log(cellMatrix);
+  return cellMatrix
 }
 
-function flipRandomly(matrix: number[][]) {
-  const times = 100;
+function flipRandomly(matrix: number[][], times=100) {  
   const numberMap = createNumberMap(matrix.length);
   for (let i = 0; i < times; i++) {
     const rowOrCol = Math.random() < 0.5;
@@ -57,7 +56,7 @@ function flipRandomly(matrix: number[][]) {
       const col = Math.floor(Math.random() * matrix[0].length);
       flipColumn(matrix, col);
     }
-    console.table(matrix);
+    // console.table(matrix);
     addCellsToMap(numberMap, matrix);
   }
 
