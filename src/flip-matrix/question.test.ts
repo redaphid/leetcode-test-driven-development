@@ -51,7 +51,7 @@ describe("flipmatrix", () => {
       });
       describe("when asking for allowed cells", () => {
         test("should return the correct cells", () => {
-          const allowedCells = getAllowedCells(numberMap, 37);
+          const allowedCells = getAllowedCells(numberMap, 30);
           expect(allowedCells).toBeDefined();
           console.table(allowedCells);
         });

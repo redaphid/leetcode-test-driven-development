@@ -56,12 +56,9 @@ function flipRandomly(matrix: number[][], times=100) {
       const col = Math.floor(Math.random() * matrix[0].length);
       flipColumn(matrix, col);
     }
-    // console.table(matrix);
     addCellsToMap(numberMap, matrix);
   }
 
-  // const allowedCells = getAllowedCells(numberMap, 10);
-  // console.table(allowedCells);
   return numberMap;
 }
 
