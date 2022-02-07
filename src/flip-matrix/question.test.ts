@@ -27,14 +27,29 @@ describe("flipmatrix", () => {
         expect(numberMap).toBeDefined();
       });
       describe("when asking for allowed cells", () => {
-        test("should return the correct cells", () => {
-          const allowedCells = getAllowedCells(numberMap, 2);
+        test("should return the correct cells for 16", () => {
+          const allowedCells = getAllowedCells(numberMap, 16);
+          expect(allowedCells).toBeDefined();
+          console.table(allowedCells);
+        });
+        test("should return the correct cells for 15", () => {
+          const allowedCells = getAllowedCells(numberMap, 15);
+          expect(allowedCells).toBeDefined();
+          console.table(allowedCells);
+        });
+        test("should return the correct cells for 11", () => {
+          const allowedCells = getAllowedCells(numberMap, 11);
+          expect(allowedCells).toBeDefined();
+          console.table(allowedCells);
+        });
+        test("should return the correct cells for 12", () => {
+          const allowedCells = getAllowedCells(numberMap, 12);
           expect(allowedCells).toBeDefined();
           console.table(allowedCells);
         });
       });
     });
-    describe("when flipping a 6x6 matrix", () => {
+    describe("given a 6x6 matrix", () => {
       beforeEach(() => {
         matrix = [
           [81, 82, 83, 84, 85, 86],
@@ -44,16 +59,30 @@ describe("flipmatrix", () => {
           [25, 26, 27, 28, 29, 30],
           [32, 33, 34, 35, 36, 37],
         ];
-        numberMap = flipRandomly(matrix, 1000);
       });
-      test("should return a numberMap", () => {
-        expect(numberMap).toBeDefined();
-      });
-      describe("when asking for allowed cells", () => {
-        test("should return the correct cells", () => {
-          const allowedCells = getAllowedCells(numberMap, 30);
-          expect(allowedCells).toBeDefined();
+      describe("when the matrix is flipped 1x", () => {
+        beforeEach(() => {
+          numberMap = flipRandomly(matrix, 1);
+        });
+        test("should tell us a given number can only be in 2 places", () => {
+          const allowedCells = getAllowedCells(numberMap, 35);          
           console.table(allowedCells);
+        });
+      })
+      describe("when the matrix is flipped 1000x", () => {
+        beforeEach(() => {
+          numberMap = flipRandomly(matrix, 10000);
+        });
+
+        test("should return a numberMap", () => {
+          expect(numberMap).toBeDefined();
+        });
+        describe("when asking for allowed cells", () => {
+          test("should return the correct cells", () => {
+            const allowedCells = getAllowedCells(numberMap, 78);
+            expect(allowedCells).toBeDefined();
+            console.table(allowedCells);
+          });
         });
       });
     });

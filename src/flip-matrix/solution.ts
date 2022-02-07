@@ -25,7 +25,7 @@ function flipColumn(matrix: number[][], c: number) {
 function createNumberMap(len: number): Set<number>[][] {
   const numberMap = new Array(len)
     .fill(0)
-    .map((_) => new Array(len).fill(new Set<number>()));
+    .map((_) => new Array(len).fill(null).map(_=>new Set<number>()));
   return numberMap;
 }
 
@@ -39,7 +39,7 @@ function addCellsToMap(numberMap: Set<number>[][], matrix: number[][]) {
 }
 
 function getAllowedCells(numberMap: Set<number>[][], val: number) {
-  const cellMatrix = numberMap.map((row) =>
+  const cellMatrix = numberMap.map(row =>
     row.map((col) => (col.has(val) ? val.toString() : "--"))
   );
   return cellMatrix
