@@ -1,9 +1,24 @@
+interface Node {
+  data: number | undefined
+  next: Node | undefined
+  values: number[] | undefined
+}
 class SinglyLinkedListNode {
   data: number;
   next: SinglyLinkedListNode | undefined;
   constructor(nodeData: number) {
     this.data = nodeData;
     this.next = null;
+  }
+  get values() {
+    let output = []
+    output.push(this.data)
+    let node = this as Node
+    while (node != null) {
+      output.push(node.data)
+      node = node.next;
+    }
+    return output;
   }
 }
 
@@ -34,9 +49,9 @@ class SinglyLinkedList {
     this.tail = node;
   }
   getListString() {
-    return this.getValues().join(' ')
+    return this.values.join(' ')
   }
-  getValues() {
+  get values() {
     let output = []
     let node = this.head
     while (node != null) {
@@ -47,25 +62,11 @@ class SinglyLinkedList {
   }
 }
 
-function printSinglyLinkedList(node: SinglyLinkedListNode, sep: string) {
-  let output: string = "";
-  while (node != null) {
-    output += node.data;
-
-    node = node.next;
-
-    if (node != null) {
-      output += sep;
-    }
-  }
-  return output;
-}
-
 function mergeLists(
-  head1: SinglyLinkedListNode, head2: SinglyLinkedListNode): SinglyLinkedListNode {
+  head1: Node, head2: Node): Node {
   if (!head1 && !head2) return new SinglyLinkedList([]);
   if (!head1) return head2;
   if (!head2) return head1;
+  return new SinglyLinkedList([...head1.values, ...head2.values])
 }
-
-export { mergeLists, printSinglyLinkedList, SinglyLinkedList };
+export { mergeLists, SinglyLinkedList };
