@@ -1,8 +1,3 @@
-
-function readLine(): string {
-  return inputLines[currentLine++];
-}
-
 interface ListNode {
   data: number | undefined
   next: ListNode | undefined
@@ -63,24 +58,14 @@ class SinglyLinkedList {
     return output;
   }
 }
+
 function mergeLists(head1: SinglyLinkedListNode, head2: SinglyLinkedListNode): SinglyLinkedListNode {
-    return head1
+    throw new Error("implement me!")
 }
 
-function printSinglyLinkedList(node: SinglyLinkedListNode, sep: string) {
-    let output:string = ''
-  while (node != null) {
-      output += node.data  
-
-    node = node.next;
-
-    if (node != null) {
-      output+=sep
-    }
-  }
-  console.log(output)
+function readLine(): string {
+  return inputLines[currentLine++];
 }
-
 process.stdin.resume();
 process.stdin.setEncoding("utf-8");
 let inputString: string = "";
@@ -103,26 +88,26 @@ function main() {
   const tests = parseInt(readLine(), 10);
 
   for (let testsItr = 0; testsItr < tests; testsItr++) {
-    const llist1Count = parseInt(readLine(), 10);
+    const l1count = parseInt(readLine(), 10);
 
-    let llist1 = new SinglyLinkedList([]);
+    let l1 = new SinglyLinkedList([]);
 
-    for (let i = 0; i < llist1Count; i++) {
-      const llist1Item = parseInt(readLine(), 10);
-      llist1.insertNode(llist1Item);
+    for (let i = 0; i < l1count; i++) {
+      const val = parseInt(readLine(), 10);
+      l1.insertNode(val);
     }
 
-    const llist2Count = parseInt(readLine(), 10);
+    const l2Count = parseInt(readLine(), 10);
 
-    let llist2 = new SinglyLinkedList([]);
+    let l2 = new SinglyLinkedList([]);
 
-    for (let i = 0; i < llist2Count; i++) {
-      const llist2Item = parseInt(readLine(), 10);
-      llist2.insertNode(llist2Item);
+    for (let i = 0; i < l2Count; i++) {
+      const val = parseInt(readLine(), 10);
+      l2.insertNode(val);
     }
 
-    let llist3 = mergeLists(llist1.head, llist2.head);
+    let l3 = mergeLists(l1.head, l2.head);
 
-    printSinglyLinkedList(llist3, " ");
+    console.log(l3.values.join(' '))
   }
 }
