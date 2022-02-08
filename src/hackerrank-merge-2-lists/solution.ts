@@ -10,9 +10,11 @@ class SinglyLinkedListNode {
 class SinglyLinkedList {
   head: SinglyLinkedListNode;
   tail: SinglyLinkedListNode;
-  constructor() {
-    this.head = null;
-    this.tail = null;
+
+  constructor(values:number[]){   
+    for (let v of values){
+      this.insertNode(v)
+    }
   }
 
   insertNode(nodeData: number) {
@@ -29,19 +31,21 @@ class SinglyLinkedList {
 }
 
 function printSinglyLinkedList(node: SinglyLinkedListNode, sep: string) {
+  let output: string = "";
   while (node != null) {
-    console.log(String(node.data));
+    output += node.data;
 
     node = node.next;
 
     if (node != null) {
-      console.log(sep);
+      output += sep;
     }
   }
+  return output
 }
 
-function hackerrankmerge2lists() {
-  throw new Error("This solution has not been implemented yet.");
+function mergeLists(head1: SinglyLinkedListNode, head2: SinglyLinkedListNode): SinglyLinkedListNode {
+  return head1
 }
-export { hackerrankmerge2lists };
 
+export { mergeLists, printSinglyLinkedList, SinglyLinkedList };
