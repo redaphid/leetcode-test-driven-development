@@ -1,5 +1,5 @@
 interface ListNode {
-  data: number | undefined
+  data: number
   next: ListNode | undefined
   values: number[] | undefined
 }
