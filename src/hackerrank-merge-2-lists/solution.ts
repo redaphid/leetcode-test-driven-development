@@ -67,6 +67,11 @@ function mergeLists(
   if (!head1 && !head2) return new SinglyLinkedList([]);
   if (!head1) return head2;
   if (!head2) return head1;
-  return new SinglyLinkedList([...head1.values, ...head2.values])
+  const values = [
+    ...head1.values,
+   ...head2.values
+  ].sort((a,b)=>a-b)
+  
+  return new SinglyLinkedList(values)
 }
 export { mergeLists, SinglyLinkedList };

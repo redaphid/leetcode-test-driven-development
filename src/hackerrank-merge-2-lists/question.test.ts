@@ -3,13 +3,6 @@ import {
   SinglyLinkedList,
 } from "./solution";
 describe("mergeLists", () => {
-  test("Example 1", () => {
-    const l1 = new SinglyLinkedList([1, 2, 3]);
-    const l2 = new SinglyLinkedList([3, 4]);
-    const rl = mergeLists(l1, l2);
-    const result = rl.values
-    expect(result).toEqual([1,2,3,3,4]);
-  });
   describe("Given 2 lists", () => {
     let l1, l2, result;
     describe("When both lists are null", () => {
@@ -25,10 +18,29 @@ describe("mergeLists", () => {
         l2 = new SinglyLinkedList([1]);
         result = mergeLists(l1, l2);
       });
-      it("should return 1 element", () => {
-
+      it("should return the elements from l2", () => {
         expect(result.values).toEqual([1]);
       });
     });
+    describe("When both lists have sorted values", ()=>{
+      beforeEach(()=>{
+        l1 = new SinglyLinkedList([1, 2, 3]);
+        l2 = new SinglyLinkedList([3, 4]);
+        result = mergeLists(l1, l2)
+      })
+      it("should return a list with the values in sorted order", ()=>{
+        expect(result.values).toEqual([1,2,3,3,4]);
+      })
+    })
+    describe("When the lists have unsorted values", ()=>{
+      beforeEach(()=>{
+        l1 = new SinglyLinkedList([9,1, 4, 2, 3]);
+        l2 = new SinglyLinkedList([3, 2]);
+        result = mergeLists(l1, l2)
+      })
+      it("should return a list with the values in sorted order", ()=>{
+        expect(result.values).toEqual([1,2,2,3,3,4,9]);
+      })
+    })
   });
 });
