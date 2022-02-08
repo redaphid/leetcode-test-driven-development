@@ -1,6 +1,6 @@
 class SinglyLinkedListNode {
   data: number;
-  next: SinglyLinkedListNode;
+  next: SinglyLinkedListNode | undefined;
   constructor(nodeData: number) {
     this.data = nodeData;
     this.next = null;
@@ -10,10 +10,15 @@ class SinglyLinkedListNode {
 class SinglyLinkedList {
   head: SinglyLinkedListNode;
   tail: SinglyLinkedListNode;
-
-  constructor(values:number[]){   
-    for (let v of values){
-      this.insertNode(v)
+  get data() {
+    return this.head.data
+  }
+  get next() {
+    return this.head.next
+  }
+  constructor(values: number[] | undefined = undefined) {
+    for (let v of values) {
+      this.insertNode(v);
     }
   }
 
@@ -28,6 +33,9 @@ class SinglyLinkedList {
 
     this.tail = node;
   }
+  getListString() {
+    return printSinglyLinkedList(this.head, " ");
+  }
 }
 
 function printSinglyLinkedList(node: SinglyLinkedListNode, sep: string) {
@@ -41,11 +49,14 @@ function printSinglyLinkedList(node: SinglyLinkedListNode, sep: string) {
       output += sep;
     }
   }
-  return output
+  return output;
 }
 
-function mergeLists(head1: SinglyLinkedListNode, head2: SinglyLinkedListNode): SinglyLinkedListNode {
-  return head1
+function mergeLists(
+  head1: SinglyLinkedListNode, head2: SinglyLinkedListNode): SinglyLinkedListNode {
+  if (!head1 && !head2) return new SinglyLinkedList();
+  if (!head1) return head2;
+  if (!head2) return head1;
 }
 
 export { mergeLists, printSinglyLinkedList, SinglyLinkedList };
