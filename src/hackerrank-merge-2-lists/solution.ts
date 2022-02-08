@@ -57,6 +57,9 @@ class SinglyLinkedList {
     }
     return output;
   }
+  toString(){
+    return this.values.join(' ')
+  }
 }
 
 function mergeLists(

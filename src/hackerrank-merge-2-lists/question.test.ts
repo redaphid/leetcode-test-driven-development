@@ -3,6 +3,10 @@ import {
   SinglyLinkedList,
 } from "./solution";
 describe("mergeLists", () => {
+  test("toString", ()=>{
+    const s = new SinglyLinkedList([1,4,2]).toString()
+    expect(s).toEqual("1 4 2")
+  })
   describe("Given 2 lists", () => {
     let l1, l2, result;
     describe("When both lists are null", () => {
