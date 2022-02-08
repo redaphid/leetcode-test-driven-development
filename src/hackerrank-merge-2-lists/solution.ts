@@ -34,7 +34,16 @@ class SinglyLinkedList {
     this.tail = node;
   }
   getListString() {
-    return printSinglyLinkedList(this.head, " ");
+    return this.getValues().join(' ')
+  }
+  getValues() {
+    let output = []
+    let node = this.head
+    while (node != null) {
+      output.push(node.data)
+      node = node.next;
+    }
+    return output;
   }
 }
 

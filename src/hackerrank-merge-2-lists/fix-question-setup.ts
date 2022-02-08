@@ -5,7 +5,7 @@ function readLine(): string {
 
 class SinglyLinkedListNode {
   data: number;
-  next: SinglyLinkedListNode;
+  next: SinglyLinkedListNode | undefined;
   constructor(nodeData: number) {
     this.data = nodeData;
     this.next = null;
@@ -15,9 +15,16 @@ class SinglyLinkedListNode {
 class SinglyLinkedList {
   head: SinglyLinkedListNode;
   tail: SinglyLinkedListNode;
-  constructor() {
-    this.head = null;
-    this.tail = null;
+  get data() {
+    return this.head.data
+  }
+  get next() {
+    return this.head.next
+  }
+  constructor(values: number[]) {
+    for (let v of values) {
+      this.insertNode(v);
+    }
   }
 
   insertNode(nodeData: number) {
