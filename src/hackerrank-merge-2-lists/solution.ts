@@ -16,7 +16,7 @@ class SinglyLinkedList {
   get next() {
     return this.head.next
   }
-  constructor(values: number[] | undefined = undefined) {
+  constructor(values: number[]) {
     for (let v of values) {
       this.insertNode(v);
     }
@@ -54,7 +54,7 @@ function printSinglyLinkedList(node: SinglyLinkedListNode, sep: string) {
 
 function mergeLists(
   head1: SinglyLinkedListNode, head2: SinglyLinkedListNode): SinglyLinkedListNode {
-  if (!head1 && !head2) return new SinglyLinkedList();
+  if (!head1 && !head2) return new SinglyLinkedList([]);
   if (!head1) return head2;
   if (!head2) return head1;
 }
