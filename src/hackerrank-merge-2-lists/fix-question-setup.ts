@@ -1,3 +1,4 @@
+
 interface ListNode {
   data: number | undefined
   next: ListNode | undefined
@@ -57,10 +58,6 @@ class SinglyLinkedList {
     }
     return output;
   }
-}
-
-function mergeLists(head1: SinglyLinkedListNode, head2: SinglyLinkedListNode): SinglyLinkedListNode {
-    throw new Error("implement me!")
 }
 
 function readLine(): string {
