@@ -3,12 +3,27 @@ function readLine(): string {
   return inputLines[currentLine++];
 }
 
+interface ListNode {
+  data: number | undefined
+  next: ListNode | undefined
+  values: number[] | undefined
+}
 class SinglyLinkedListNode {
   data: number;
   next: SinglyLinkedListNode | undefined;
   constructor(nodeData: number) {
     this.data = nodeData;
     this.next = null;
+  }
+  get values() {
+    let output = []
+    output.push(this.data)
+    let node = this as ListNode
+    while (node != null) {
+      output.push(node.data)
+      node = node.next;
+    }
+    return output;
   }
 }
 
@@ -38,8 +53,16 @@ class SinglyLinkedList {
 
     this.tail = node;
   }
+  get values() {
+    let output = []
+    let node = this.head
+    while (node != null) {
+      output.push(node.data)
+      node = node.next;
+    }
+    return output;
+  }
 }
-
 function mergeLists(head1: SinglyLinkedListNode, head2: SinglyLinkedListNode): SinglyLinkedListNode {
     return head1
 }
@@ -82,7 +105,7 @@ function main() {
   for (let testsItr = 0; testsItr < tests; testsItr++) {
     const llist1Count = parseInt(readLine(), 10);
 
-    let llist1 = new SinglyLinkedList();
+    let llist1 = new SinglyLinkedList([]);
 
     for (let i = 0; i < llist1Count; i++) {
       const llist1Item = parseInt(readLine(), 10);
@@ -91,7 +114,7 @@ function main() {
 
     const llist2Count = parseInt(readLine(), 10);
 
-    let llist2 = new SinglyLinkedList();
+    let llist2 = new SinglyLinkedList([]);
 
     for (let i = 0; i < llist2Count; i++) {
       const llist2Item = parseInt(readLine(), 10);

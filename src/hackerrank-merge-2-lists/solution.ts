@@ -1,6 +1,6 @@
-interface Node {
+interface ListNode {
   data: number | undefined
-  next: Node | undefined
+  next: ListNode | undefined
   values: number[] | undefined
 }
 class SinglyLinkedListNode {
@@ -13,7 +13,7 @@ class SinglyLinkedListNode {
   get values() {
     let output = []
     output.push(this.data)
-    let node = this as Node
+    let node = this as ListNode
     while (node != null) {
       output.push(node.data)
       node = node.next;
@@ -48,9 +48,6 @@ class SinglyLinkedList {
 
     this.tail = node;
   }
-  getListString() {
-    return this.values.join(' ')
-  }
   get values() {
     let output = []
     let node = this.head
@@ -63,7 +60,7 @@ class SinglyLinkedList {
 }
 
 function mergeLists(
-  head1: Node, head2: Node): Node {
+  head1: ListNode, head2: ListNode): ListNode {
   if (!head1 && !head2) return new SinglyLinkedList([]);
   if (!head1) return head2;
   if (!head2) return head1;
@@ -71,7 +68,7 @@ function mergeLists(
     ...head1.values,
    ...head2.values
   ].sort((a,b)=>a-b)
-  
+
   return new SinglyLinkedList(values)
 }
 export { mergeLists, SinglyLinkedList };
