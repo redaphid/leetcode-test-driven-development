@@ -33,16 +33,22 @@ class SinglyLinkedList {
   }
 }
 
+function mergeLists(head1: SinglyLinkedListNode, head2: SinglyLinkedListNode): SinglyLinkedListNode {
+    return head1
+}
+
 function printSinglyLinkedList(node: SinglyLinkedListNode, sep: string) {
+    let output:string = ''
   while (node != null) {
-    console.log(String(node.data));
+      output += node.data  
 
     node = node.next;
 
     if (node != null) {
-      console.log(sep);
+      output+=sep
     }
   }
+  console.log(output)
 }
 
 process.stdin.resume();
@@ -61,9 +67,7 @@ process.stdin.on("end", function (): void {
   main();
 });
 
-function mergeLists(head1: SinglyLinkedListNode, head2: SinglyLinkedListNode): SinglyLinkedListNode {
-  return new SinglyLinkedListNode(0);
-}
+
 
 function main() {
   const tests = parseInt(readLine(), 10);
